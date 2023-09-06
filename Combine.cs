@@ -276,6 +276,34 @@ namespace Scanner
                                 break;
                             }
                         }
+                    }if (Name.EndsWith(".php"))
+                    {
+                        foreach (string line in lines)
+                        {
+                            if (line == "")
+                            {
+                                continue;
+                            }
+                            if (line.Contains("<?") && line.Contains("?>"))
+                            {
+                                a++;
+                            }
+                            if (line.Contains("<?") && !line.Contains("?>"))
+                            {
+                                foreach (string l in lines)
+                                {
+                                    if (l.Contains("?>"))
+                                    {
+                                        break;
+                                    }
+                                    a++;
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
                     }
                     if (Name.EndsWith(".html"))
                     {
