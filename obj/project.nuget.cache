@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "z7UosS9pL+FPNJ6N17MaARvhDorIn5uVFlRyvBfWXVcAFSicvCv1c8gRbc2vztuJzcezR6MJH8yJJ9CeAieJOA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mathi\\OneDrive - Centria ammattikorkeakoulu Oy\\Tiedostot\\ScanTheHeader\\ScanTheHeader.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mathi\\.nuget\\packages\\libgit2sharp\\0.27.2\\libgit2sharp.0.27.2.nupkg.sha512",
+    "C:\\Users\\Mathi\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.320\\libgit2sharp.nativebinaries.2.0.320.nupkg.sha512"
+  ],
+  "logs": []
+}
