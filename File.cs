@@ -1,5 +1,4 @@
 using LibGit2Sharp;
-
 namespace Scanner
 {
     public class Files
