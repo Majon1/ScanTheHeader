@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mathi\\OneDrive - Centria ammattikorkeakoulu Oy\\Tiedostot\\ScanTheHeader\\ScanTheHeader.csproj": {}
+    "C:\\Users\\h27348\\OneDrive - Centria ammattikorkeakoulu Oy\\Documents\\ScanTheHeader\\ScanTheHeader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mathi\\OneDrive - Centria ammattikorkeakoulu Oy\\Tiedostot\\ScanTheHeader\\ScanTheHeader.csproj": {
+    "C:\\Users\\h27348\\OneDrive - Centria ammattikorkeakoulu Oy\\Documents\\ScanTheHeader\\ScanTheHeader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mathi\\OneDrive - Centria ammattikorkeakoulu Oy\\Tiedostot\\ScanTheHeader\\ScanTheHeader.csproj",
+        "projectUniqueName": "C:\\Users\\h27348\\OneDrive - Centria ammattikorkeakoulu Oy\\Documents\\ScanTheHeader\\ScanTheHeader.csproj",
         "projectName": "ScanTheHeader",
-        "projectPath": "C:\\Users\\Mathi\\OneDrive - Centria ammattikorkeakoulu Oy\\Tiedostot\\ScanTheHeader\\ScanTheHeader.csproj",
-        "packagesPath": "C:\\Users\\Mathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mathi\\OneDrive - Centria ammattikorkeakoulu Oy\\Tiedostot\\ScanTheHeader\\obj\\",
+        "projectPath": "C:\\Users\\h27348\\OneDrive - Centria ammattikorkeakoulu Oy\\Documents\\ScanTheHeader\\ScanTheHeader.csproj",
+        "packagesPath": "C:\\Users\\h27348\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\h27348\\OneDrive - Centria ammattikorkeakoulu Oy\\Documents\\ScanTheHeader\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\h27348\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,18 @@
-﻿using LibGit2Sharp;
+//********************************************************************
+// * 
+// * File   : Program.cs
+// * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
+// *
+// * Copyright (C) (2023) Centria University of Applied Sciences.
+// * All rights reserved.
+// *
+// * Unauthorized copying of this file, via any medium is strictly
+// * prohibited.
+// *
+// ********************************************************************
+//
+
+using LibGit2Sharp;
 using System.IO;
 
 namespace Scanner

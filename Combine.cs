@@ -1,3 +1,18 @@
+//********************************************************************
+// * 
+// * File   : Combine.cs
+// * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
+// *
+// * Copyright (C) (2023) Centria University of Applied Sciences.
+// * All rights reserved.
+// *
+// * Unauthorized copying of this file, via any medium is strictly
+// * prohibited.
+// *
+// ********************************************************************
+//
+
+using System.Globalization;
 using LibGit2Sharp;
 
 namespace Scanner
@@ -235,8 +250,13 @@ namespace Scanner
                             for (int j = 1; j < ListAuthors.Count; j++)
                             {
                                 replaced[i + j] = "// *          " + ListAuthors[j].ToString();
+                                if (j == ListAuthors.Count - 1)
+                                {
+                                    replaced[i + j] = "// *";
+                                }
                             }
                         }
+
                     }
                     if (replaced[i].Contains("{years}"))
                     {
@@ -276,7 +296,8 @@ namespace Scanner
                                 break;
                             }
                         }
-                    }if (Name.EndsWith(".php"))
+                    }
+                    if (Name.EndsWith(".php"))
                     {
                         foreach (string line in lines)
                         {
@@ -365,11 +386,30 @@ namespace Scanner
                         }
                     }
                     Console.WriteLine("a is " + a);
+
                     foreach (string l in replaced)
                     {
                         writer.WriteLine(l);
                     }
                     Console.WriteLine("a equals " + a);
+
+                    if (Name.EndsWith(".py"))
+                    {
+                        writer.WriteLine("#");
+                    }
+                    else if (Name.EndsWith(".html"))
+                    {
+                        writer.WriteLine("<!-- -->");
+                    }
+                    else if (Name.EndsWith(".php"))
+                    {
+                        writer.WriteLine("<? ?>");
+                    }
+                    else
+                    {
+                        writer.WriteLine("//");
+                    }
+
                     for (int i = a; i < lines.Count(); i++)
                     {
                         writer.WriteLine(lines[i]);
