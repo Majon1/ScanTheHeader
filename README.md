@@ -16,7 +16,7 @@ This program was created to scan the repository and check whether all code files
 * Copyright (C) {YEARS} Centria University of Applied Sciences.
 * All rights reserved.
 *
-* Unathorized copying of this file, via any medium is strictly
+* Unauthorized copying of this file, via any medium is strictly
 * prohibited.
 *
 ****************************************************************
