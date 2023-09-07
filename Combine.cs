@@ -242,7 +242,7 @@ namespace Scanner
                             newName.Substring(newName.LastIndexOf('\\') + 1)
                         );
                     }
-                    if (replaced[i].Contains("{author}"))
+                    if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!!
                     {
                         replaced[i] = replaced[i].Replace("{author}", ListAuthors[0].ToString());
                         if (ListAuthors.Count > 1)
@@ -257,6 +257,7 @@ namespace Scanner
                             }
                         }
                     }
+                    //     i = ListAuthors.Count();
                     if (replaced[i].Contains("{years}"))
                     {
                         if (firstYear == lastYear)
