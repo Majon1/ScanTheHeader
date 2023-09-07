@@ -1,3 +1,18 @@
+//********************************************************************
+// *
+// * File   : Combine.cs
+// * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
+// *
+// * Copyright (C) (2023) Centria University of Applied Sciences.
+// * All rights reserved.
+// *
+// * Unauthorized copying of this file, via any medium is strictly
+// * prohibited.
+// *
+// ********************************************************************
+//
+
+using System.Globalization;
 using LibGit2Sharp;
 
 namespace Scanner
@@ -199,6 +214,7 @@ namespace Scanner
 
         public void AddTemplate(string path, string templatePath)
         {
+            Console.WriteLine("H");
             DirectoryInfo d = new DirectoryInfo(path);
             FileInfo[] files = d.GetFiles("*.*");
             foreach (FileInfo file in files)
@@ -211,6 +227,7 @@ namespace Scanner
             }
             if (!complete)
             {
+                Console.WriteLine("e");
                 string tempfile = Path.GetTempFileName();
                 string finalTemp = templatePath;
                 string[] cTemplate = File.ReadAllLines(finalTemp);
@@ -279,7 +296,7 @@ namespace Scanner
                             }
                         }
                     }
-                    if (Name.EndsWith(".php")) //needs fix
+                    if (Name.EndsWith(".php"))
                     {
                         foreach (string line in lines)
                         {
@@ -345,12 +362,11 @@ namespace Scanner
                             {
                                 a++;
                             }
-
-                            if (line == "")
+                            else if (line == "")
                             {
                                 continue;
                             }
-                            if (line.Contains("/*"))
+                            else if (line.Contains("/*"))
                             {
                                 foreach (string l in lines)
                                 {
@@ -375,7 +391,7 @@ namespace Scanner
                     }
                     Console.WriteLine("a equals " + a);
 
-                    /*if (Name.EndsWith(".py"))
+                    if (Name.EndsWith(".py"))
                     {
                         writer.WriteLine("#");
                     }
@@ -390,12 +406,11 @@ namespace Scanner
                     else
                     {
                         writer.WriteLine("//");
-                    }*/
+                    }
 
-                    for (int i = 0; i < lines.Count(); i++)
+                    for (int i = a; i < lines.Count(); i++)
                     {
                         writer.WriteLine(lines[i]);
-                        Console.WriteLine("line is " + lines[i]);
                     }
                 }
                 File.Copy(tempfile, Name, true);
