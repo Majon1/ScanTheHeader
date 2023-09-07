@@ -1,9 +1,9 @@
 //********************************************************************
 // * 
 // * File   : Combine.cs
-// * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
+// * Author : GitHub <noreply@github.com>
+// *          Majon1 <mathilda.nynas@gmail.com>
 // *
-// * Copyright (C) (2023) Centria University of Applied Sciences.
 // * All rights reserved.
 // *
 // * Unauthorized copying of this file, via any medium is strictly
@@ -11,8 +11,6 @@
 // *
 // ********************************************************************
 //
-
-using System.Globalization;
 using LibGit2Sharp;
 
 namespace Scanner
@@ -256,7 +254,6 @@ namespace Scanner
                                 }
                             }
                         }
-
                     }
                     if (replaced[i].Contains("{years}"))
                     {
@@ -297,7 +294,7 @@ namespace Scanner
                             }
                         }
                     }
-                    if (Name.EndsWith(".php"))
+                    if (Name.EndsWith(".php")) //needs fix
                     {
                         foreach (string line in lines)
                         {
@@ -413,6 +410,7 @@ namespace Scanner
                     for (int i = a; i < lines.Count(); i++)
                     {
                         writer.WriteLine(lines[i]);
+                        Console.WriteLine("line is " + lines[i]);
                     }
                 }
                 File.Copy(tempfile, Name, true);
