@@ -242,24 +242,26 @@ namespace Scanner
                             newName.Substring(newName.LastIndexOf('\\') + 1)
                         );
                     }
-                    if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!!
+                    Console.WriteLine("before " + i);
+                    if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!! //will create extra list
                     {
                         replaced[i] = replaced[i].Replace("{author}", ListAuthors[0].ToString());
                         if (ListAuthors.Count > 1)
                         {
-                            for (int j = 1; j < ListAuthors.Count; j++)
+                            for (int j = 0; j < ListAuthors.Count; j++)
                             {
                                 replaced[i + j] = "// *          " + ListAuthors[j].ToString();
-                                if (j == ListAuthors.Count - 1)
+                                /*if (j == ListAuthors.Count - 1)
                                 {
-                                    replaced[i + j] = "// *";
-                                }
+                                    
+                                }*/
                             }
                         }
                     }
-                    //     i = ListAuthors.Count();
+
                     if (replaced[i].Contains("{years}"))
                     {
+                        i++;
                         if (firstYear == lastYear)
                         {
                             replaced[i] = replaced[i].Replace("{years}", lastYear.ToString());
