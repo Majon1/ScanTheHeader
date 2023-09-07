@@ -1,5 +1,5 @@
 //********************************************************************
-// * 
+// *
 // * File   : Program.cs
 // * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
 // *

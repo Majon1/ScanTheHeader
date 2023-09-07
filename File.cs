@@ -1,5 +1,5 @@
 //********************************************************************
-// * 
+// *
 // * File   : File.cs
 // * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
 // *
@@ -12,6 +12,7 @@
 // ********************************************************************
 //
 using LibGit2Sharp;
+
 namespace Scanner
 {
     public class Files

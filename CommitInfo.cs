@@ -1,5 +1,5 @@
 //********************************************************************
-// * 
+// *
 // * File   : CommitInfo.cs
 // * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
 // *

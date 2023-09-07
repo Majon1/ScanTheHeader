@@ -1,16 +1,3 @@
-//********************************************************************
-// * 
-// * File   : Combine.cs
-// * Author : GitHub <noreply@github.com>
-// *          Majon1 <mathilda.nynas@gmail.com>
-// *
-// * All rights reserved.
-// *
-// * Unauthorized copying of this file, via any medium is strictly
-// * prohibited.
-// *
-// ********************************************************************
-//
 using LibGit2Sharp;
 
 namespace Scanner
@@ -212,7 +199,6 @@ namespace Scanner
 
         public void AddTemplate(string path, string templatePath)
         {
-            Console.WriteLine("H");
             DirectoryInfo d = new DirectoryInfo(path);
             FileInfo[] files = d.GetFiles("*.*");
             foreach (FileInfo file in files)
@@ -225,7 +211,6 @@ namespace Scanner
             }
             if (!complete)
             {
-                Console.WriteLine("e");
                 string tempfile = Path.GetTempFileName();
                 string finalTemp = templatePath;
                 string[] cTemplate = File.ReadAllLines(finalTemp);
@@ -390,7 +375,7 @@ namespace Scanner
                     }
                     Console.WriteLine("a equals " + a);
 
-                    if (Name.EndsWith(".py"))
+                    /*if (Name.EndsWith(".py"))
                     {
                         writer.WriteLine("#");
                     }
@@ -405,9 +390,9 @@ namespace Scanner
                     else
                     {
                         writer.WriteLine("//");
-                    }
+                    }*/
 
-                    for (int i = a; i < lines.Count(); i++)
+                    for (int i = 0; i < lines.Count(); i++)
                     {
                         writer.WriteLine(lines[i]);
                         Console.WriteLine("line is " + lines[i]);
