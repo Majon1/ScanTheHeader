@@ -233,6 +233,7 @@ namespace Scanner
                 string[] cTemplate = File.ReadAllLines(finalTemp);
                 List<string> replaced = cTemplate.ToList();
                 List<string> newTemp = new List<string>();
+
                 string comment = "";
                 if (Name.EndsWith(".py"))
                 {
