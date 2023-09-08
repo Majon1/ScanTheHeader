@@ -1,5 +1,5 @@
 // ********************************************************************
-// * 
+// *
 // * File   : Combine.cs
 // * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
 // *         GitHub <noreply@github.com>
@@ -412,13 +412,12 @@ namespace Scanner
                             }
                         }
                     }
-                    Console.WriteLine("a is " + a);
 
                     foreach (string l in newTemp)
                     {
                         writer.WriteLine(l);
                     }
-                    Console.WriteLine("a equals " + a);
+                    writer.WriteLine("");
 
                     for (int i = a; i < lines.Count(); i++)
                     {
