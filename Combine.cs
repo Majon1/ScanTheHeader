@@ -232,6 +232,7 @@ namespace Scanner
                 string finalTemp = templatePath;
                 string[] cTemplate = File.ReadAllLines(finalTemp);
                 List<string> replaced = cTemplate.ToList();
+                List<string> newTemp = new List<string>();
 
                 for (int i = 0; i < replaced.Count; i++)
                 {
@@ -241,40 +242,46 @@ namespace Scanner
                             "{filename}",
                             newName.Substring(newName.LastIndexOf('\\') + 1)
                         );
-                    }
-                    Console.WriteLine("before " + i);
-                    if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!! //will create extra list
-                    {
-                        replaced[i] = replaced[i].Replace("{author}", ListAuthors[0].ToString());
-                        if (ListAuthors.Count > 1)
+                        for (int s = 0; s <= i; s++)
                         {
-                            for (int j = 0; j < ListAuthors.Count; j++)
-                            {
-                                replaced[i + j] = "// *          " + ListAuthors[j].ToString();
-                                /*if (j == ListAuthors.Count - 1)
-                                {
-                                    
-                                }*/
-                            }
+                            newTemp.Add(replaced[s]);
                         }
                     }
 
+                    if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!!
+                    {
+                        newTemp.Add("// * Author : " + ListAuthors[0].ToString());
+                        if (ListAuthors.Count > 1)
+                        {
+                            for (int j = 1; j < ListAuthors.Count; j++)
+                            {
+                                newTemp.Add("// *          " + ListAuthors[j].ToString());
+                            }
+                        }
+                        newTemp.Add("// *");
+                    }
                     if (replaced[i].Contains("{years}"))
                     {
-                        i++;
                         if (firstYear == lastYear)
                         {
-                            replaced[i] = replaced[i].Replace("{years}", lastYear.ToString());
+                            newTemp.Add(replaced[i].Replace("{years}", lastYear.ToString()));
+                            for (int s = i + 1; s < replaced.Count; s++)
+                            {
+                                newTemp.Add(replaced[s]);
+                            }
                         }
                         else
                         {
-                            replaced[i] = replaced[i].Replace(
-                                "{years}",
-                                firstYear.ToString() + "-" + lastYear.ToString()
+                            newTemp.Add(
+                                replaced[i].Replace(
+                                    "{years}",
+                                    firstYear.ToString() + "-" + lastYear.ToString()
+                                )
                             );
                         }
                     }
                 }
+
                 Console.WriteLine("now");
                 string[] lines = File.ReadAllLines(Name);
                 using (StreamWriter writer = new(tempfile))
@@ -388,28 +395,11 @@ namespace Scanner
                     }
                     Console.WriteLine("a is " + a);
 
-                    foreach (string l in replaced)
+                    foreach (string l in newTemp)
                     {
                         writer.WriteLine(l);
                     }
                     Console.WriteLine("a equals " + a);
-
-                    if (Name.EndsWith(".py"))
-                    {
-                        writer.WriteLine("#");
-                    }
-                    else if (Name.EndsWith(".html"))
-                    {
-                        writer.WriteLine("<!-- -->");
-                    }
-                    else if (Name.EndsWith(".php"))
-                    {
-                        writer.WriteLine("<? ?>");
-                    }
-                    else
-                    {
-                        writer.WriteLine("//");
-                    }
 
                     for (int i = a; i < lines.Count(); i++)
                     {
