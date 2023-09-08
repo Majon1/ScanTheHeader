@@ -233,6 +233,19 @@ namespace Scanner
                 string[] cTemplate = File.ReadAllLines(finalTemp);
                 List<string> replaced = cTemplate.ToList();
                 List<string> newTemp = new List<string>();
+                string comment = "";
+                if (Name.EndsWith(".py"))
+                {
+                    comment = "#*";
+                }
+                if (Name.EndsWith(".html"))
+                {
+                    comment = "*";
+                }
+                else
+                {
+                    comment = "// *";
+                }
 
                 for (int i = 0; i < replaced.Count; i++)
                 {
@@ -250,15 +263,15 @@ namespace Scanner
 
                     if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!!
                     {
-                        newTemp.Add("// * Author : " + ListAuthors[0].ToString());
+                        newTemp.Add(comment + " Author : " + ListAuthors[0].ToString());
                         if (ListAuthors.Count > 1)
                         {
                             for (int j = 1; j < ListAuthors.Count; j++)
                             {
-                                newTemp.Add("// *          " + ListAuthors[j].ToString());
+                                newTemp.Add(comment + "         " + ListAuthors[j].ToString());
                             }
                         }
-                        newTemp.Add("// *");
+                        newTemp.Add(comment);
                     }
                     if (replaced[i].Contains("{years}"))
                     {
