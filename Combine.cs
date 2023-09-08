@@ -1,7 +1,9 @@
 // ********************************************************************
-// *
+// * 
 // * File   : Combine.cs
 // * Author : Mathilda Nynäs <mathilda.nynas@gmail.com>
+// *         GitHub <noreply@github.com>
+// *         Majon1 <mathilda.nynas@gmail.com>
 // *
 // * Copyright (C) (2023) Centria University of Applied Sciences.
 // * All rights reserved.
@@ -10,6 +12,7 @@
 // * prohibited.
 // *
 // ********************************************************************
+
 using System.Globalization;
 using LibGit2Sharp;
 
@@ -44,6 +47,10 @@ namespace Scanner
 
         public void AddAuthors(List<Signature> authors)
         {
+            if (authors.Count == 0)
+            {
+                Console.WriteLine("no author");
+            }
             ListAuthors.Add(authors[0]);
 
             IEnumerable<Signature> authorsToAdd = authors.Where(
@@ -88,7 +95,7 @@ namespace Scanner
 
         public void ReadThisFile(string path)
         {
-            string filed = Name.Substring(Name.LastIndexOf("\\") + 1);
+            string filed = Name.Substring(Name.LastIndexOf("//") + 1);
             if (path.Contains("gitrepo"))
             {
                 Name = path.Substring(0, path.LastIndexOf("gitrepo")) + filed;
@@ -124,7 +131,7 @@ namespace Scanner
             int amount = 0;
             foreach (string l in lines)
             {
-                if (l.Contains(newName[(newName.LastIndexOf('\\') + 1)..]))
+                if (l.Contains(newName[(newName.LastIndexOf("//") + 1)..]))
                 {
                     filename = true;
                 }
@@ -172,27 +179,27 @@ namespace Scanner
                 || Name.EndsWith(".ts")
             )
             {
-                string templatePath = pathNow + "\\templates\\cs.template.txt";
+                string templatePath = pathNow + "//templates//cs.template.txt";
                 WhereTo(path, templatePath);
             }
             else if (Name.EndsWith(".py"))
             {
-                string templatePath = pathNow + "\\templates\\py.template.txt";
+                string templatePath = pathNow + "//templates//py.template.txt";
                 WhereTo(path, templatePath);
             }
             else if (Name.EndsWith(".html"))
             {
-                string templatePath = pathNow + "\\templates\\html.template.txt";
+                string templatePath = pathNow + "//templates//html.template.txt";
                 WhereTo(path, templatePath);
             }
             else if (Name.EndsWith(".css"))
             {
-                string templatePath = pathNow + "\\templates\\css.template.txt";
+                string templatePath = pathNow + "//templates//css.template.txt";
                 WhereTo(path, templatePath);
             }
             else if (Name.EndsWith(".php"))
             {
-                string templatePath = pathNow + "\\templates\\php.template.txt";
+                string templatePath = pathNow + "//templates//php.template.txt";
                 WhereTo(path, templatePath);
             }
         }
@@ -217,7 +224,7 @@ namespace Scanner
             FileInfo[] files = d.GetFiles("*.*");
             foreach (FileInfo file in files)
             {
-                string nameOnlyFile = Name.Substring(Name.LastIndexOf("\\") + 1);
+                string nameOnlyFile = Name.Substring(Name.LastIndexOf("//") + 1);
                 if (file.FullName.EndsWith(nameOnlyFile)) //get name only file name
                 {
                     Name = file.FullName;
@@ -232,11 +239,12 @@ namespace Scanner
                 List<string> replaced = cTemplate.ToList();
                 List<string> newTemp = new List<string>();
                 string comment = "";
+                Console.WriteLine("name is " + Name);
                 if (Name.EndsWith(".py"))
                 {
                     comment = "#*";
                 }
-                if (Name.EndsWith(".html"))
+                else if (Name.EndsWith(".html"))
                 {
                     comment = "*";
                 }
@@ -251,7 +259,7 @@ namespace Scanner
                     {
                         replaced[i] = replaced[i].Replace(
                             "{filename}",
-                            newName.Substring(newName.LastIndexOf('\\') + 1)
+                            newName.Substring(newName.LastIndexOf("//") + 1)
                         );
                         for (int s = 0; s <= i; s++)
                         {
@@ -259,7 +267,7 @@ namespace Scanner
                         }
                     }
 
-                    if (replaced[i].Contains("{author}")) //ISSUE IS HERE!!!!
+                    if (replaced[i].Contains("{author}"))
                     {
                         newTemp.Add(comment + " Author : " + ListAuthors[0].ToString());
                         if (ListAuthors.Count > 1)
